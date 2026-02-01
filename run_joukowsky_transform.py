@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = 100
+R = 1.15
+c = 1.0
+cx = -0.12
+cy = 0.08
+
+ang = np.linspace(0,2*np.pi,n)
+
+circ_x = R*np.cos(ang)+cx
+circ_y = R*np.sin(ang)+cy
+
+
+unit_circ_x = 1*np.cos(ang)
+unit_circ_y = 1*np.sin(ang)
+
+
+z = circ_x + circ_y*1j
+
+zeta = z + c**2/z
+
+fig1, [ax0,ax1] = plt.subplots(1,2,figsize=(10,6))
+
+ax0.plot(circ_x,circ_y,'-k',lw=3)
+ax0.plot(unit_circ_x,unit_circ_y,'--k',lw=1)
+
+ax1.plot(zeta.real,zeta.imag,'-b',lw=3)
+
+ax0.axis('equal')
+ax1.axis('equal')
+# plt.savefig("./images/transform_circle.png",dpi=200)
+plt.show()
+
