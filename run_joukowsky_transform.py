@@ -30,6 +30,6 @@ ax1.plot(zeta.real,zeta.imag,'-b',lw=3)
 
 ax0.axis('equal')
 ax1.axis('equal')
-# plt.savefig("./images/transform_circle.png",dpi=200)
+plt.savefig("./images/transform_circle.png",dpi=200)
 plt.show()
 
