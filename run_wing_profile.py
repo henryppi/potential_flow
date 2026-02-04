@@ -28,32 +28,41 @@ circle = 1.1*R*np.exp(ang*1j)+0.2*1j-0.03
 
 w_cyl = U * (np.exp(alpha*1j) - R**2/(z**2*np.exp(alpha*1j)-a*1j))-1j*(gamma/(2*np.pi*z))
 # transform = 1/(1-R**2/(z**2))
-circle = circle-0.2*1j
+circle2 = circle-0.2*1j
 
 transform = z + c**2/z
 w_wing = w_cyl*transform
 
-wing = circle + c**2/circle
+wing = circle2 + c**2/circle2
 
+
+# %% Joukowsky transform
+fz = z+R**2/z
+platte = circle + R**2/circle
+platte2 = platte -0.2*1j
+w_platte = w_cyl*transform
+# Z=flipud(Z);
+# fz = Z(:)+R^2./Z(:);
+# fx = real(fz);
+# fy = imag(fz);
+# platte = kreis+R^2./kreis;
+# platte = platte -0.2*1i;
+
+z_platte = np.flipud(xx).flatten() + np.flipud(yy).flatten()*1j
+z_platte = z_platte +c**2/z_platte
 
 fig1, [ax0,ax1] = plt.subplots(2,1,figsize=(6,12))
 
-# w_cyl = np.nan_to_num(w_cyl)
-# levels = np.linspace(np.min(np.abs(-w_cyl)),np.max(np.abs(-w_cyl)),100)
-# print(levels)
-# print(np.min(np.abs(w_cyl)),np.max(np.abs(w_cyl)))
-# print(w_cyl)
-
-# ax1.plot(circ_x,circ_y,'-k',lw=3)
-# ax1.plot(unit_circ_x,unit_circ_y,'--k',lw=1)
 ax0.contourf(xx,yy,np.reshape(-w_cyl,[n,n]),20,cmap='jet')
 ax0.quiver(xx.flatten(),yy.flatten(),w_cyl.real,-w_cyl.imag,color='k')
-ax0.plot(circle.real,circle.imag,'-k',lw=3)
+ax0.plot(circle2.real,circle2.imag,'-k',lw=3)
 
 ax0.axis('equal')
 
-ax1.quiver(xx.flatten(),yy.flatten(),w_wing.real,-w_wing.imag,color='k')
-ax1.plot(wing.real,wing.imag,'-k',lw=3)
+# ax1.quiver(xx.flatten(),yy.flatten(),w_wing.real,-w_wing.imag,color='k')
+ax1.quiver(z_platte.real,z_platte.imag,w_platte.real,-w_platte.imag,color='k')
+ax1.plot(platte2.real,platte2.imag,'-k',lw=3)
+# ax1.plot(wing.real,wing.imag,'-k',lw=3)
 ax1.axis('equal')
 
 plt.savefig("./images/magnus_effect.png",dpi=200)
