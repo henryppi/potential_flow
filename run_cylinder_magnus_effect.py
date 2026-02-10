@@ -32,6 +32,12 @@ circle = circle-0.2*1j
 
 fig1, ax1 = plt.subplots(1,1,figsize=(6,6))
 
+# ux,uy = np.gradient(phi_pol,axis=(0,1))
+# ax4[1].streamplot(rr,aa,ux,uy,density=0.5, color='b',linewidth=0.5)
+
+
+
+
 # w_cyl = np.nan_to_num(w_cyl)
 # levels = np.linspace(np.min(np.abs(-w_cyl)),np.max(np.abs(-w_cyl)),100)
 # print(levels)
