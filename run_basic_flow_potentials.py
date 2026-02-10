@@ -48,11 +48,13 @@ h1,tmp = cs121.legend_elements()
 h2,tmp = cs122.legend_elements()
 ax12.legend([h1[0], h2[0],h3], ['$\phi$ velocity potential', '$\psi$ streamline','velocity vector'])
 
+fig1.savefig('./images/uniform_flow.png',bbox_inches='tight',dpi=200)
+
 # =====================================================================
 # wedge flow
 c=1.0
 n=100
-fig2, ax2 = plt.subplots(2,2,figsize=(12,12),facecolor='w',frameon=False)
+fig2, ax2 = plt.subplots(2,2,figsize=(10,10),facecolor='w',frameon=False)
 
 theta = 180*np.pi/180
 p = np.pi/theta
@@ -152,7 +154,7 @@ ax2[1,1].set_title('wedge angle $\Theta=60^\circ$')
 h1,tmp = cs1.legend_elements()
 h2,tmp = cs2.legend_elements()
 ax2[1,1].legend([h1[0], h2[0],h3[0]], ['$\phi$ velocity potential', '$\psi$ streamline','wall'],loc=1)
-
+fig2.savefig('./images/wedge_flow.png',bbox_inches='tight',dpi=200)
 
 # =====================================================================
 # stagnation flow
@@ -209,6 +211,7 @@ ax3[1].set_title('wedge angle $\Theta=180^\circ$')
 h1,tmp = cs1.legend_elements()
 h2,tmp = cs2.legend_elements()
 ax3[1].legend([h1[0], h2[0],h3[0],h4[0],h5[0]], ['$\phi$ velocity potential', '$\psi$ streamline','wall','stagnation streamline','stagnation point'],loc=1)
+fig3.savefig('./images/stagnation_flow.png',bbox_inches='tight',dpi=200)
 
 # =====================================================================
 # # polar plot source
@@ -255,5 +258,6 @@ ax4[1].set_title('circulation')
 h1,tmp = cs1.legend_elements()
 h2,tmp = cs2.legend_elements()
 ax4[1].legend([h1[0], h2[0]], ['$\phi$ velocity potential', '$\psi$ streamline'],loc=1)
+fig4.savefig('./images/source_circulation.png',bbox_inches='tight',dpi=200)
 
 plt.show()
