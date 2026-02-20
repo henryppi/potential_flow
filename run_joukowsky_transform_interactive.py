@@ -194,6 +194,7 @@ class CircleInteractor:
         self.ax.draw_artist(self.wing)
         self.ax.draw_artist(self.line)
         self.canvas.blit(self.ax.bbox)
+        self.canvas.draw()
 
 fig, ax = plt.subplots(figsize=(8,8),facecolor='w',frameon=False)
 fig.patch.set_facecolor('none') 
