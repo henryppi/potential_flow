@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 n = 100
-R = 1.55
+R = 1.15
 c = 1.0
-cx = -0.22
+cx = -0.12
 cy = 0.08
 
 ang = np.linspace(0,2*np.pi,n)

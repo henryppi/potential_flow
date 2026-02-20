@@ -5,7 +5,7 @@ n = 100
 
 U = 2 
 R = 1
-gamma = -20
+gamma = -10
 
 x = np.linspace(-3,3,n)
 y = np.linspace(-3,3,n)
