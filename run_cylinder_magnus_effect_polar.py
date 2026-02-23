@@ -5,11 +5,11 @@ n=100
 
 U = 10 
 R = 1
-gamma = -10
+gamma = -4
 
 C = 1.15
 cx = -0.12
-cy = 0.08
+cy = 0.18
 
 r = np.linspace(C,5,n)
 ang = np.linspace(0,2*np.pi,n)
@@ -41,7 +41,7 @@ cs2 = ax1.contour(xx,yy,np.reshape(w_cyl.imag,[n,n]),levels=levels,colors='k',li
 # ax4[0].set_xlim([xmin,xmax])
 # ax4[0].set_ylim([ymin,ymax])
 ax1.axis('equal')
-ax1.set_title('Joukowsky Wing')
+# ax1.set_title('Joukowsky Wing')
 
 h1,tmp = cs1.legend_elements()
 h2,tmp = cs2.legend_elements()
@@ -55,7 +55,7 @@ h2,tmp = cs2.legend_elements()
 # ax1.streamplot(xx,yy,np.reshape(w_cyl.real,[n,n]),np.reshape(-w_cyl.imag,[n,n]))
 
 ax1.plot(circle.real,circle.imag,'-k',lw=3)
-# ax1.axis('equal')
+ax1.axis('off')
 
-plt.savefig("joukowsky_wing.png",dpi=200)
+plt.savefig("./images/joukowsky_wing_potential_lines.png",dpi=200,bbox_inches='tight')
 plt.show()
