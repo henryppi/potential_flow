@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 n=100
 
-U = 2 
+U = 10 
 R = 1
 gamma = -10
 
@@ -11,7 +11,7 @@ C = 1.15
 cx = -0.12
 cy = 0.08
 
-r = np.linspace(C,3,n)
+r = np.linspace(C,5,n)
 ang = np.linspace(0,2*np.pi,n)
 rr,aa = np.meshgrid(r,ang)
 
@@ -25,7 +25,7 @@ circle = C*np.exp(ang*1j) # for plotting
 circle += cx + 1j*cy 
 circle = circle + 1**2/circle
 
-w_cyl = U * (1 - R**2/(np.copy(z)**2))-1j*(gamma/(2*np.pi*np.copy(z))) # complex potential
+w_cyl = U * (1 - R**2/(np.copy(z)**1))-1j*(gamma/(2*np.pi*np.copy(z))) # complex potential
 
 z += cx + 1j * cy
 z = np.copy(z) + 1**2/np.copy(z)
@@ -35,7 +35,7 @@ yy = np.reshape(z.imag,[n,n])
 
 fig1, ax1 = plt.subplots(1,1,figsize=(6,6),facecolor='w',frameon=False)
 
-levels = 15
+levels = 24
 cs1 = ax1.contour(xx,yy,np.reshape(w_cyl.real,[n,n]),levels=levels,colors='k',linestyles='dashed',linewidths=1.5)
 cs2 = ax1.contour(xx,yy,np.reshape(w_cyl.imag,[n,n]),levels=levels,colors='k',linestyles='solid',linewidths=1.5)
 # ax4[0].set_xlim([xmin,xmax])

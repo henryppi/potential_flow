@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 n = 500
 
-U = 2 
+U = 10 
 R = 1
 gamma = -4
 
@@ -17,14 +17,15 @@ ang = np.linspace(0,2*np.pi,100)
 
 xx,yy = np.meshgrid(x,y)
 z = xx.flatten() + yy.flatten()*1j
-mask = np.where(np.abs(z)<(1*1.08)**2)
+mask = np.where(np.abs(z)<(1*1.07)**2)
 z[mask] = np.nan
 
 circle = C*np.exp(ang*1j) # for plotting
 circle += cx + 1j*cy 
 circle = circle + 1**2/circle
 
-w_cyl = U * (1 - R**2/(np.copy(z)**2))-1j*(gamma/(2*np.pi*np.copy(z))) # complex potential
+# w_cyl = U * (1 - C**2/(np.copy(z)**1))-1j*(gamma/(2*np.pi*np.copy(z))) # complex potential
+w_cyl = U * (1 - C**2/(z))-1j*(gamma/(2*np.pi))/z # complex potential
 
 z += cx + 1j * cy
 z = np.copy(z) + 1**2/np.copy(z)
