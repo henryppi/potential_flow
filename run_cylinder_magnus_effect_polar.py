@@ -35,17 +35,16 @@ yy = np.reshape(z.imag,[n,n])
 
 fig1, ax1 = plt.subplots(1,1,figsize=(6,6),facecolor='w',frameon=False)
 
-cs1 = ax1.contour(xx,yy,np.reshape(np.abs(w_cyl),[n,n]),levels=12,colors='k',linestyles='dashed',linewidths=1.5)
-# cs1 = ax1.contour(xx,yy,np.reshape(w_cyl.real,[n,n]),levels=12,colors='k',linestyles='dashed',linewidths=1.5)
-
-cs2 = ax1.contour(xx,yy,np.reshape(w_cyl.imag,[n,n]),levels=12,colors='k',linestyles='solid',linewidths=1.5)
+levels = 15
+cs1 = ax1.contour(xx,yy,np.reshape(w_cyl.real,[n,n]),levels=levels,colors='k',linestyles='dashed',linewidths=1.5)
+cs2 = ax1.contour(xx,yy,np.reshape(w_cyl.imag,[n,n]),levels=levels,colors='k',linestyles='solid',linewidths=1.5)
 # ax4[0].set_xlim([xmin,xmax])
 # ax4[0].set_ylim([ymin,ymax])
 ax1.axis('equal')
 ax1.set_title('Joukowsky Wing')
 
 h1,tmp = cs1.legend_elements()
-# h2,tmp = cs2.legend_elements()
+h2,tmp = cs2.legend_elements()
 # ax1.legend([h1[0], h2[0]], ['$\phi$ velocity potential', '$\psi$ streamline'],loc=1)
 
 
